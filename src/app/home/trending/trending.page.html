@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Trending products</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tabnav/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar mode="ios" placeholder="Filter Products" inputmode="string" type="string" [(ngModel)]="searchFilter.name" [debounce]="250" showCancelButton="always"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-text *ngIf="(products | filterBy: searchFilter).length === 0" color="primary" class="ion-text-center">
+    <h5>No Products Found!</h5>
+  </ion-text>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of products | filterBy: searchFilter">
+          <app-product
+            [id]="item._id"
+            [types]="item.quantities"
+            [productName]="item.name"
+            [productPrice]="item.quantities[0].discountedPrice"
+            [imageUrl]="item.images[0].link"
+            [rating]="4.2"
+            (addEvent)="addToCart($event)"
+          ></app-product>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

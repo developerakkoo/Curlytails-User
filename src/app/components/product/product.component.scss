@@ -1,0 +1,109 @@
+.card{
+    height: auto;
+    width:100%;
+    border:1px solid lightgray;
+    border-radius: 12px;
+    position: relative;
+}
+
+.top-section{
+    position: relative;
+   display: flex;
+    height: 180px;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+}
+
+.card > .discount{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--ion-color-primary);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.discount{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+.discount > p{
+    font-size: 8px;
+    
+}
+
+.product-img{
+    height: 8em;
+    width: auto;
+}
+
+.rating{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 6px;
+    border-radius: 6px;
+    border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+
+.rating-text{
+    font-size:0.7em;
+}
+
+.bottom-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 6px;
+}
+
+.pricing-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
+
+.price{
+    color: var(--ion-color-primary);
+    font-size: 14px;
+    margin:  10px 0px;
+}
+.actual-price{
+    text-decoration: line-through;
+    font-size: 8px;
+    margin: 0;
+    color: var(ion-color-medium);
+} 
+
+ion-grid{
+    margin: 0;
+    padding: 0;
+}
+
+ion-button{
+    color: var(ion-color-light);
+}
+
+
+.name{
+    font-size: 10px;
+    text-overflow: ellipsis;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0;
+    height: 45px;
+}

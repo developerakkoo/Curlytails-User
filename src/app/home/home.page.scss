@@ -1,0 +1,91 @@
+.toolbar{
+  --padding-top: 0px !important;
+  --padding-start: 0px !important;
+  --padding-right: 0px !important;
+  --padding-end: 0px !important;
+  --height:100px;
+}
+
+.profile-icon{
+  margin-left: 21px;
+  margin-top: -7px;
+  position: absolute;
+  height: 22px;
+  width: auto;
+}
+img{
+  margin-left: 21px;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.titleText{
+  color: #181725;
+font-family: Lato;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.linkText{
+  color: #FF7322;
+font-family: Lato;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+/* Style the search bar */
+/* Scoped components require higher specificity to customize */
+ion-searchbar.custom {
+  
+ 
+  --background: #19422d;
+  --color: #fff;
+  --placeholder-color: #fff;
+  --icon-color: #fff;
+  --clear-button-color: #fff;
+
+  --border-radius: 4px;
+  --box-shadow:none;
+}
+
+ion-searchbar.ios.custom {
+  --cancel-button-color: #19422d;
+  --box-shadow:none;
+}
+
+ion-searchbar.md.custom {
+  --cancel-button-color: #fff;
+  --box-shadow:none;
+}
+
+ion-title{
+  font-size: 18px;
+}
+
+swiper-slide {
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: 180px;
+
+  font-size: 18px;
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+swiper-slide img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}

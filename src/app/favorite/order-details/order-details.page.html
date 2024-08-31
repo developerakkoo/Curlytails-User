@@ -1,0 +1,57 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Order Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tabnav/favorite"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <div class="img-container">
+    <img crossorigin="anonymous" [src]="hotelDetails?.image_url" alt="" srcset="">
+  </div>
+
+  <ion-item lines="none" class="item-bottom-border-dotted">
+    <ion-label>{{hotelDetails?.hotelName}}
+      <p> <strong> {{priceDetails?.totalAmountToPay | currency:"INR"}} </strong> <span class="ion-margin-start">{{products?.length}} Items</span> </p>
+      <p> {{date | date:"MMM dd, yyyy 'at' hh:mm a"}} </p>
+    </ion-label>
+  </ion-item>
+
+
+  <ion-item lines="none">
+    <ion-icon name="pizza" slot="start"></ion-icon>
+    <ion-label>
+     Estimated Delivery Time
+     <p>Fri, November 8 at 3:00 PM</p>
+    </ion-label>
+  </ion-item>
+
+  <div class="timeline">
+    <div class="one" *ngFor="let item of orderTimeline">
+      <img src="assets/timeline-01.png" alt="">
+      <div class="timeline-div">
+        <p class="timeline-title"> {{item.title}} </p>
+        <p class="timeline-date"> {{item.dateTime}} </p>
+      </div>
+    </div>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Your Order</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of products">
+      <ion-avatar slot="start">
+        <img crossorigin="anonymous" [src]="item?.dishId?.image_url" />
+      </ion-avatar>
+      <ion-label> {{item?.dishId?.name | titlecase}}
+        <p> {{item?.dishId?.userPrice | currency:"INR"}} </p> </ion-label>
+    </ion-item>
+  </ion-list>
+
+<ion-button class="ion-margin-top" (click)="goToHelp()" expand="block" mode="ios">
+  Help
+</ion-button> -->
+
+</ion-content>

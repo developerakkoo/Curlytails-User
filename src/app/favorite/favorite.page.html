@@ -1,0 +1,86 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>My Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list *ngIf="orders.length > 0">
+    <ion-accordion-group>
+     <ion-accordion *ngFor="let item of orders" class="animate__animated animate__fadeIn">
+       <ion-item color="light"  slot="header" lines="none" class="ion-margin-top" detail>
+         <img class="hotel-thumbnail" [src]="item?.orderItems[0]?.productId?.images[0]?.link" />
+     
+         <div class="hotel-item-container">
+           <ion-label class="ion-margin-start">
+             <p class="title">{{item?.orderItems[0]?.productId?.name}}</p>
+             <p class="sub-title"> {{item?.orderId}} </p>
+           </ion-label>
+           <div class="ion-margin-start rating-container">
+             <p class="rating">{{item.createdAt | date}}</p>
+           </div>
+           <div class="sort-badge ion-margin-start">
+             <p *ngIf="item.status === 0">Order Placed</p>
+             <p *ngIf="item.status === 1">Preparing</p>
+             <p *ngIf="item.status === 2">Delivery Started</p>
+             <p *ngIf="item.status === 3">Delivered</p>
+             <p *ngIf="item.status === 4">Cancelled</p>
+           </div>
+         </div>
+        
+       </ion-item>
+       <div class="ion-padding" slot="content">
+         <ion-list>
+           <ion-list-header>
+             <ion-label>Your Order Details</ion-label>
+           </ion-list-header>
+           <ion-item
+           *ngFor="let p of item?.orderItems"
+             class="ion-margin-top"
+            
+           >
+             <img class="hotel-thumbnail" [src]="p?.productId?.images[0]?.link" />
+       
+             <div class="hotel-item-container">
+               <ion-label class="ion-margin-start">
+                 <p class="title">{{p?.productId?.name}}</p>
+                 <p class="sub-title">{{p?.price | currency:"INR"}}</p> <span>X {{p?.quantity}}/{{p?.size}}</span>
+               </ion-label>
+              
+               
+             </div>
+            
+           </ion-item>
+           
+         </ion-list>
+         <br>
+         <ion-item>
+           <ion-label>Subtotal</ion-label>
+           <p class="pricing" slot="end">{{item?.priceDetails.subtotal | currency:"INR"}}</p>
+         </ion-item>
+         <ion-item>
+           <ion-label>Delivery</ion-label>
+           <p class="pricing" slot="end">{{item?.priceDetails.deliveryCharges | currency:"INR"}}</p>
+         </ion-item>
+        
+         <ion-item>
+           <ion-label>(GST)</ion-label>
+           <p class="pricing" slot="end">{{item?.priceDetails.gstAmount | currency:"INR"}}</p>
+         </ion-item>
+         <ion-item>
+           <ion-label>Amount Paid</ion-label>
+           <p class="pricing" slot="end">{{item?.priceDetails.totalAmountToPay | currency:"INR"}}</p>
+         </ion-item>
+         <p *ngIf="item.status === 4">You will get your refund in 2-3 days.</p>
+         <ion-button [disabled]="item.status === 4 || item.status === 2 || item.status === 3" *ngIf="item.orderStatus != 3" (click)="openRefundPage(item)" expand="block" fill="clear" shape="round">
+           Ask For Refund & Cancelations
+         </ion-button>
+         <!-- <ion-button *ngIf="item.orderStatus != 3" (click)="openOrderDetailsPage(item)" expand="block" fill="clear" shape="round">
+           View Details
+         </ion-button> -->
+       </div>
+ 
+     </ion-accordion>
+    </ion-accordion-group>
+   </ion-list>
+</ion-content>

@@ -1,0 +1,76 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="address"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Enter address details</ion-title>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+ <br><br>
+ <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-input
+  class="animate__animated animate__fadeIn"
+  color="medium"
+  labelPlacement="stacked"
+  label="Address"
+  placeholder="XXXX XXXX XXXX XXX."
+  fill="outline"
+  formControlName="address"
+>
+ 
+</ion-input>
+<br>
+<ion-input
+class="animate__animated animate__fadeIn"
+color="medium"
+labelPlacement="stacked"
+label="Pincode"
+placeholder="XX XX XX."
+fill="outline"
+formControlName="pincode"
+[helperText]="helperText"
+>
+
+
+
+</ion-input>
+<!-- <ion-chip color="primary" mode="ios" outline="true">
+  <ion-label>Default</ion-label>
+  <ion-icon name="close-circle"></ion-icon>
+</ion-chip>
+<ion-chip color="primary" mode="ios" outline="false">
+  <ion-label>Default</ion-label>
+</ion-chip>
+<ion-chip color="primary" mode="ios" outline="true">
+  <ion-label>Home</ion-label>
+</ion-chip>
+<ion-chip color="primary" mode="ios" outline="true">
+  <ion-label>Office</ion-label>
+</ion-chip>
+<ion-chip color="primary" mode="ios" outline="true">
+  <ion-label>Other</ion-label>
+</ion-chip> -->
+<ion-item>
+  <ion-label>Address Type</ion-label>
+  <ion-select formControlName="type" value="home" interface="action-sheet" placeholder="Select Type">
+    <ion-select-option value="home">Home</ion-select-option>
+    <ion-select-option value="office">Office</ion-select-option>
+    <ion-select-option value="other">Other</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label>Set Default?</ion-label>
+  <ion-checkbox mode="ios" formControlName="isSelected" slot="end"></ion-checkbox>
+</ion-item>
+<br>
+
+  <ion-button expand="block" mode="ios" color="primary" type="submit" [disabled]="form.invalid">
+    Add Address
+  </ion-button>
+ </form>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Delivery Address</ion-title>
+    <ion-button (click)="close()" fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <ion-list>
+      <ion-item detail lines="full" (click)="openMapsAddressPage()">
+        <ion-icon
+          color="primary"
+          name="navigate-circle-outline"
+          slot="start"
+        ></ion-icon>
+        <ion-label>Current Location</ion-label>
+      </ion-item>
+    </ion-list>
+
+  
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Saved Addresses</ion-label>
+      </ion-list-header>
+      <ion-item lines="full" *ngFor="let item of address" (click)="setAddressDefault(item)">
+        <ion-icon color="primary" name="home-outline" slot="start"></ion-icon>
+        <ion-label>
+          {{item.type |titlecase }}
+          <p>{{item.address}}</p>
+        </ion-label>
+        <ion-icon color="medium" name="pencil-outline" slot="end"></ion-icon>
+      </ion-item>
+     
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-button
+      mode="ios"
+      (click)="openMapsAddressPage()"
+      expand="block"
+      fill="clear"
+      shape="round"
+    >
+      ADD NEW ADDRESS
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,42 @@
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+ <div class="container ">
+  <img class="animate__animated animate__fadeIn" src="assets/login-image.png" alt="">
+  <p class="brand animate__animated animate__fadeIn">Curlytails</p>
+  <p class="sub-title animate__animated animate__fadeIn">Your one stop Pet Shop!</p>
+  <p style="align-self: flex-start; margin-top:20px;" class="dark-text animate__animated animate__fadeIn">Hi!👋 Welcome to Curlytails.</p>
+  <p style="align-self: flex-start;" class="light-text animate__animated animate__fadeIn">Create your account or Log in.</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="ion-margin-top animate__animated animate__slideInUp">
+    
+    <ion-input
+    #input
+      type="tel"
+      fill="solid"
+      lines="none"
+      mode="md"
+      label="Mobile number"
+      labelPlacement="stacked"
+      formControlName="phoneNo"
+      counter="true"
+      maxlength="10"
+      helperText="Securing your personal information is our priority"
+    >
+    </ion-input>
+
+    
+    <ion-button expand="block" mode="ios" class="ion-margin-top animate__animated animate__slideInUp" color="primary" type="submit" [disabled]="form.invalid">
+      Continue
+    </ion-button>
+  </form>
+ </div>
+</ion-content>
+<ion-footer class="ion-no-border animate__animated animate__slideInUp">
+  <ion-toolbar color="light" class="ion-no-border" style="text-align: center;">
+    <ion-text class="ion-text-center" color="dark">
+      <ion-label style="font-size: 12px;"
+        >By login, you agree to our <strong>terms and conditions.</strong>
+      </ion-label>
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>

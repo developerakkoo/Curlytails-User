@@ -1,0 +1,18 @@
+<div class="product-card ">
+  <div class="product-info">
+    <img [src]="productImageUrl" alt="Product Image" class="product-image">
+    <div class="product-details">
+      <h2>{{productName}}</h2>
+      <p class="pricing">Price: {{productPrice | currency:"INR"}} <span>per {{size}}</span></p>
+      <p class="quantity">Quantity: {{quantity}}</p>
+     
+    </div>
+  </div>
+  <div class="cart-actions animate__animated animate__flipInX">
+    <button (click)="decrementQuantity()">-</button>
+    <span>{{quantity}}</span>
+    <button (click)="incrementQuantity()">+</button>
+    <!-- <ion-button>Add to Cart</ion-button> -->
+  </div>
+
+</div>

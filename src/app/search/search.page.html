@@ -1,0 +1,39 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar >
+    <div class="search-container">
+      <img src="assets/icon/search-outline.svg" alt="" srcset="" />
+      <input
+      #searchInput
+        class="searchbar"
+        type="text"
+        placeholder="Search for Whiskas,.. etc."
+        [(ngModel)]="productFilter.name"
+      />
+    </div>
+    <ion-button (click)="close()" fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container" *ngIf="isLoading">
+    <div  class="lds-ripple"><div></div><div></div></div>
+  </div>
+  <ion-text *ngIf="searchItems.length <= 0" color="primary" class="ion-text-center  animate__animated animate__fadeIn">
+    <h6>No Search Results!</h6>
+  </ion-text>
+
+<ion-list *ngIf="searchItems.length > 1">
+  <ion-item *ngFor="let s of searchItems | filterBy: productFilter" class=" animate__animated animate__fadeIn" (click)="openPage(s)">
+    <ion-thumbnail>
+      <img [src]="s?.images[0]?.link" />
+    </ion-thumbnail>
+    <ion-label class="ion-margin-start">
+      {{s.name}}
+      <p> {{s.brand | uppercase}} </p>
+    </ion-label>
+    <ion-badge size="large" color="primary" slot="end" mode="ios">Add</ion-badge>
+  </ion-item>
+</ion-list>
+</ion-content>

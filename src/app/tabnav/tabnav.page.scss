@@ -1,0 +1,20 @@
+ion-tab-button{
+    background:#fff;
+
+
+}
+
+ion-tabs,ion-tab-bar{
+    outline: none;
+    border: none;
+    background:#fff;
+
+}
+
+.tab-btn-selected,
+
+ion-tab-button:active,
+ion-tab-button:hover,
+ion-tab-button:focus{
+    color: var(--ion-color-primary);
+}

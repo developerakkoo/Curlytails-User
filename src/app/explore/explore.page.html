@@ -1,0 +1,93 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>My Cart</ion-title>
+    <ion-button (click)="clearCart()" fill="clear" slot="end">
+      <ion-icon size="small" slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="!isLoading && cart.length  == 0" class="container">
+    <img src="assets/Empty.gif" alt="" />
+    <p>Your Cart Empty!</p>
+    <ion-button class="button" (click)="goToHome()" mode="ios">
+      Order Now
+    </ion-button>
+  </div>
+
+  <div *ngIf="!isLoading && cart.length  > 0" class="container-cart">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle><span style="    font-size: 8px;
+          font-weight: 300;
+          color: green;">(Add more {{150 | currency:"INR"}} worth Items to get 10% Off)</span></ion-card-subtitle>
+          <ion-card-subtitle>Cart Items </ion-card-subtitle>
+        </ion-card-header>
+      <ion-list>
+        <app-product-cart
+        *ngFor="let item of cart"
+        [_id]="item.productId?._id"
+          [productImageUrl]="item.productId?.images[0].link"
+          [productName]="item.productId?.name"
+          [productPrice]="item.price"
+          [quantity]="item.quantity"
+          [size]="item.size"
+          (addEvent)="addToCart($event)"
+          (removeEvent)="removeFromCart($event)"
+        ></app-product-cart
+        >
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <div class="icon" (click)="goToAddress()">
+       <ion-chip  color="primary"  mode="ios" outline="true">
+        <ion-label>Edit</ion-label>
+       </ion-chip>
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle>Shipping Details  </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Delivery To:</strong></p>
+        <p>{{address?.address}}</p>
+       
+        <div class="deliveryby">
+          <img src="assets/icon/truck.gif" alt="" />
+          <p class="light-text">Delivery {{threeDaysAfterDay}}.</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Offers!</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="ion-no-padding" expand="full">
+          <ion-avatar slot="start">
+            <img src="assets/icon/offer.gif" />
+          </ion-avatar>
+          <ion-label class="ion-text-wrap">Flat 50% Off
+            <p style="font-size: 12px; font-weight: 300;">Get your delivery Free for the first order.</p>
+          </ion-label>
+          <ion-chip (click)="launchConfetti()" class="ion-margin-start" color="primary" slot="end" mode="ios" outline="true">
+            <ion-label>Apply</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+
+  </div>
+  
+     
+</ion-content>
+<ion-footer *ngIf="cart.length > 0">
+  <ion-toolbar>
+    <ion-button class="ion-margin" (click)="checkout()" expand="block" mode="ios">
+      Checkout ({{total | currency:"INR"}})
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="discount">
+    <p><strong>Extra 5% off</strong> Use Code <strong> PEDIGREE</strong></p>
+  </div>
+  <div class="top-section">
+    <img class="product-img" [src]="imageUrl" alt="" srcset="">
+    <div class="rating">
+      <div class="rating-text">{{rating}} <ion-icon slot="end" name="star" color="warning"></ion-icon> </div>
+    </div>
+  </div>
+  <div class="bottom-section">
+    <p class="name">{{productName}}.</p>
+
+    <div class="pricing-div">
+      <p class="price"><strong>{{productPrice | currency:"INR"}}</strong><span class="actual-price"> MRP{{productPrice | currency:"INR"}} </span>  </p>
+    </div>
+    
+      <ion-select mode="md" size="small" (ionChange)="typeSelectEvent($event)"  [value]="selectedType" aria-label="Type" label="Type" justify="space-between"  interface="popover" multiple="false" fill="outline" size="small">
+        <ion-select-option *ngFor="let item of types" [value]="item">{{item.size}}</ion-select-option>
+      </ion-select>
+  
+    <ion-button style="width:100%; margin-top:10px;" expand="block" mode="ios" (click)="add()">
+      Add To Cart
+    </ion-button>
+  </div>
+</div>

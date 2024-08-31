@@ -1,0 +1,30 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-profile-card
+  class="animate__animated animate__fadeIn"
+  profileImageUrl="https://via.placeholder.com/100"
+  userName="John Doe"
+  phoneNumber="+1234567890">
+</app-profile-card>
+  <br>
+  <ion-list class="ion-padding animate__animated animate__fadeIn ">
+    <ion-item detail lines="none" (click)="openPage('/offers')">
+      <ion-icon color="primary" slot="start" name="gift-outline"></ion-icon>
+      <ion-label>View profile</ion-label>
+    </ion-item>
+  
+    <ion-item detail lines="none" (click)="openPage('/helppage')">
+      <ion-icon color="primary"  slot="start" name="help-outline"></ion-icon>
+      <ion-label>Help</ion-label>
+    </ion-item>
+    <ion-item detail lines="none" routerLink="">
+      <ion-icon color="primary"  slot="start" name="log-out-outline"></ion-icon>
+      <ion-label>Sign Out</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

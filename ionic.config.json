@@ -1,0 +1,7 @@
+{
+  "name": "curlytails",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

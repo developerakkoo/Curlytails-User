@@ -1,0 +1,48 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    object-fit: cover;
+    margin-bottom: 16px;
+  }
+  
+  .profile-card h2 {
+    margin: 8px 0;
+    font-size: 1.5em;
+  }
+  
+  .phone-number {
+    color: #888;
+    margin-bottom: 16px;
+  }
+  
+  .edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#f4f1e2;
+    height: 40px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .edit-button ion-icon {
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0e0e0;
+  }
+  
