@@ -100,6 +100,10 @@ export class SharedService {
     return this.http.get(environment.URL + `product/search/${this.userId.value}`);
   }
 
+  getProductById(productId:any){
+    return this.http.get(environment.URL + `product/get/${productId}`);
+  }
+
   getAllBanner(){
     return this.http.get(environment.URL + `banner/getAll`);
   }

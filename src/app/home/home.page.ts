@@ -92,16 +92,7 @@ export class HomePage {
   addToCart(ev:any){
     console.log(ev.productId);
     console.log(ev.type.size);
-    this.shared.addToCart(ev.productId, 1,ev.type.size)
-    .subscribe({
-      next:async(value:any) =>{
-        console.log(value);
-        
-      },
-      error:async(error:HttpErrorResponse) =>{
-        console.log(error);
-        
-      }
-    })
+    this.router.navigate(['details',ev.productId]);
+   
   }
 }

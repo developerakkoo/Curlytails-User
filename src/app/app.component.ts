@@ -38,7 +38,7 @@ export class AppComponent {
     if (userId != null || userId != undefined) {
       console.log('userid not null');
       // this.router.navigate(['']);
-      this.router.navigate(['tabs', 'tabnav', 'home']);
+      this.router.navigate(['details','66acae69a7240bb30ecce6e0']);
     } else {
       this.router.navigate(['']);
     }

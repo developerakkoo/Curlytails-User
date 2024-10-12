@@ -15,9 +15,9 @@
       <p class="price"><strong>{{productPrice | currency:"INR"}}</strong><span class="actual-price"> MRP{{productPrice | currency:"INR"}} </span>  </p>
     </div>
     
-      <ion-select mode="md" size="small" (ionChange)="typeSelectEvent($event)"  [value]="selectedType" aria-label="Type" label="Type" justify="space-between"  interface="popover" multiple="false" fill="outline" size="small">
+      <!-- <ion-select mode="md" size="small" (ionChange)="typeSelectEvent($event)"  [value]="selectedType" aria-label="Type" label="Type" justify="space-between"  interface="popover" multiple="false" fill="outline" size="small">
         <ion-select-option *ngFor="let item of types" [value]="item">{{item.size}}</ion-select-option>
-      </ion-select>
+      </ion-select> -->
   
     <ion-button style="width:100%; margin-top:10px;" expand="block" mode="ios" (click)="add()">
       Add To Cart

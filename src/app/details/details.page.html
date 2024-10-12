@@ -1,0 +1,71 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title> {{product?.name}} </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tabnav/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <swiper-container [slidesPerView]="1" [pagination]="true" [autoplay]="true">
+    <swiper-slide *ngFor="let item of images">
+          <img [src]="item?.link" alt="" />
+    </swiper-slide>
+   
+  </swiper-container>
+  <hr>
+  <p> {{product?.name}} </p>
+  <div class="ratings">
+    <ion-icon slot="start" name="star"></ion-icon>
+    <ion-icon slot="start" name="star"></ion-icon>
+    <ion-icon slot="start" name="star"></ion-icon>
+    <ion-icon slot="start" name="star"></ion-icon>
+    <ion-icon slot="start" name="star"></ion-icon>
+    <p>4.8 (40)</p>
+  </div>
+
+  <div class="price-container">
+    <p> {{selectedProductDiscountedPrice | currency:"INR"}} </p>
+    (Inc. of all taxes)
+    <p>MRP <span> {{selectedProductPrice}} </span></p><span>SAVE 13%</span>
+  </div>
+
+    <ion-select mode="md" size="large" (ionChange)="typeSelectEvent($event)"  [value]="quantities[0]" aria-label="Type" label="Size" justify="space-between"  interface="popover" multiple="false" fill="outline" size="small">
+      <ion-select-option *ngFor="let item of quantities" [value]="item">{{item.size}}</ion-select-option>
+    </ion-select>
+
+    
+
+    <div class="desc-container">
+      <p>Description</p>
+
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore ab aliquam officiis reprehenderit neque! Laboriosam voluptate at labore ex, doloribus nihil. Ex, atque ullam minima tempore eos optio recusandae explicabo.
+      Blanditiis, excepturi possimus harum in maxime culpa nihil at magnam accusantium, doloremque rem voluptas ab natus dicta repellendus? A rerum sint fuga voluptates ab vel quia beatae eum nemo nesciunt?
+      Dignissimos labore id veniam unde illo quam tempore, voluptate similique ea excepturi at saepe, quae facere laborum quod numquam facilis. Animi fugit accusantium aut tenetur rem doloribus rerum a facere.
+      Nulla voluptatem quaerat laboriosam nisi, dicta mollitia ratione obcaecati eveniet! Impedit debitis perspiciatis reiciendis provident at nihil quae doloremque totam dolorem nulla maiores, deleniti obcaecati velit dolores recusandae nesciunt ducimus?</p>
+    </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar *ngIf="isProductAddedInCart">
+    <div class="footer-container">
+        <div class="cart-actions">
+          <button (click)="decrementQuantity()">-</button>
+          <span>{{selectedProductQuantity}}</span>
+          <button (click)="incrementQuantity()">+</button>
+          <!-- <ion-button>Add to Cart</ion-button> -->
+        </div>
+      
+      <ion-button mode="ios" (click)="viewCart()" expand="block" fill="solid">
+        VIEW CART
+      </ion-button>
+    </div>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="!isProductAddedInCart">
+   
+      
+      <ion-button mode="ios" (click)="incrementQuantity()" expand="block" fill="solid">
+        ADD TO CART
+      </ion-button>
+  </ion-toolbar>
+</ion-footer>
