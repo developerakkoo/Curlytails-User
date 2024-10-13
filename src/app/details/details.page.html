@@ -7,30 +7,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <swiper-container [slidesPerView]="1" [pagination]="true" [autoplay]="true">
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="isLoading">
+<div class="loader"></div>
+</ion-content>
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="!isLoading">
+  <swiper-container [slidesPerView]="1" [pagination]="true" [autoplay]="true" >
     <swiper-slide *ngFor="let item of images">
           <img [src]="item?.link" alt="" />
     </swiper-slide>
    
   </swiper-container>
   <hr>
-  <p> {{product?.name}} </p>
+  <p class="name"> {{product?.name}} </p>
   <div class="ratings">
-    <ion-icon slot="start" name="star"></ion-icon>
-    <ion-icon slot="start" name="star"></ion-icon>
-    <ion-icon slot="start" name="star"></ion-icon>
-    <ion-icon slot="start" name="star"></ion-icon>
-    <ion-icon slot="start" name="star"></ion-icon>
+    <ion-icon slot="start" name="star" color="primary"></ion-icon>
+    <ion-icon slot="start" name="star" color="primary"></ion-icon>
+    <ion-icon slot="start" name="star" color="primary"></ion-icon>
+    <ion-icon slot="start" name="star" color="primary"></ion-icon>
+    <ion-icon slot="start" name="star" color="primary"></ion-icon>
     <p>4.8 (40)</p>
   </div>
 
   <div class="price-container">
-    <p> {{selectedProductDiscountedPrice | currency:"INR"}} </p>
-    (Inc. of all taxes)
-    <p>MRP <span> {{selectedProductPrice}} </span></p><span>SAVE 13%</span>
+    <p class="discount-price"> {{selectedProductDiscountedPrice | currency:"INR"}} </p>
+    <p class="light-text">MRP <span  class="price"> {{selectedProductPrice | currency:"INR"}} </span></p><span class="save-percent-text">SAVE 13%</span>
   </div>
 
+    <p class="light-text">
+    (Inc. of all taxes)
+
+    </p>
+    <br>
     <ion-select mode="md" size="large" (ionChange)="typeSelectEvent($event)"  [value]="quantities[0]" aria-label="Type" label="Size" justify="space-between"  interface="popover" multiple="false" fill="outline" size="small">
       <ion-select-option *ngFor="let item of quantities" [value]="item">{{item.size}}</ion-select-option>
     </ion-select>
@@ -38,9 +45,9 @@
     
 
     <div class="desc-container">
-      <p>Description</p>
+      <p class="name">Description</p>
 
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore ab aliquam officiis reprehenderit neque! Laboriosam voluptate at labore ex, doloribus nihil. Ex, atque ullam minima tempore eos optio recusandae explicabo.
+      <p style="margin-top: 10px;" class="light-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore ab aliquam officiis reprehenderit neque! Laboriosam voluptate at labore ex, doloribus nihil. Ex, atque ullam minima tempore eos optio recusandae explicabo.
       Blanditiis, excepturi possimus harum in maxime culpa nihil at magnam accusantium, doloremque rem voluptas ab natus dicta repellendus? A rerum sint fuga voluptates ab vel quia beatae eum nemo nesciunt?
       Dignissimos labore id veniam unde illo quam tempore, voluptate similique ea excepturi at saepe, quae facere laborum quod numquam facilis. Animi fugit accusantium aut tenetur rem doloribus rerum a facere.
       Nulla voluptatem quaerat laboriosam nisi, dicta mollitia ratione obcaecati eveniet! Impedit debitis perspiciatis reiciendis provident at nihil quae doloremque totam dolorem nulla maiores, deleniti obcaecati velit dolores recusandae nesciunt ducimus?</p>

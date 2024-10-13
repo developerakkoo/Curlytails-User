@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class DetailsPage implements OnInit {
   swiperModules = [IonicSlides];
-
+  isLoading: boolean = false;
   productId:any;
   images:any[] = [];
   quantities:any[] = [];
@@ -40,6 +40,7 @@ export class DetailsPage implements OnInit {
   }
 
   async getProductDetails(){
+    this.isLoading = true;
     this.shared.getProductById(this.productId)
     .subscribe({
       next:(value:any) =>{
@@ -50,9 +51,11 @@ export class DetailsPage implements OnInit {
         this.selectedType = value['data']['quantities'][0];
         this.selectedProductPrice = value['data']['quantities'][0]['price'];
         this.selectedProductDiscountedPrice = value['data']['quantities'][0]['discountedPrice'];
+        this.isLoading = false;
       },
       error:(error:HttpErrorResponse) =>{
         console.log(error);
+        this.isLoading = false;
         
       }
     })

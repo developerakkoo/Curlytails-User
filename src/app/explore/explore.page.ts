@@ -275,7 +275,7 @@ rzp1.on('payment.failed', function (response:any){
 rzp1.open();
   }
   goToHome(){
-    this.router.navigate(['tabnav','home'])
+    this.router.navigate(['tabs','tabnav','home'])
   }
 
   async goToAddress() {
