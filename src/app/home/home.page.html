@@ -95,4 +95,18 @@
       </ion-row>
     </ion-grid>
   </ion-list>
+
+  <ion-modal #modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>30% Off!</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+       <img style="margin: 0px;" src="assets/pets/square-ad.jpeg" alt="" srcset="">
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

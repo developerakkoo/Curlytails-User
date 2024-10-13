@@ -17,6 +17,7 @@ export class HomePage {
   banners:any[] = [];
   categories:any[] = [];
 
+  isModalOpen:boolean = true;
   getProductSub$!: Subscription;
   getBannerSub$!: Subscription;
   getCategoriesSub$!: Subscription;
@@ -70,6 +71,9 @@ export class HomePage {
 
   }
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   openPetPage(){
     this.router.navigate(['tabs','tabnav','home','trending']);
   }
