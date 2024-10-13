@@ -67,7 +67,8 @@ swiper-container {
 
   .brand{
     font-size: 4em;
-    font-family: "Pacifico", cursive;
+    font-family: "Poppins", sans-serif;
+
     font-weight: 600;
     margin: 0;
     color: var(--ion-color-primary);
@@ -77,12 +78,16 @@ swiper-container {
   .sub-title{
     font-size: 16px;
     color: var(ion-color-medium);
+    font-family: "Poppins", sans-serif;
+
     font-weight: 200;
     margin: 0;
   }
 
   .light-text{
     color: var(--ion-color-medium);
+    font-family: "Poppins", sans-serif;
+
     font-weight: 400;
     font-size: 0.9em;
     margin: 0;
@@ -93,6 +98,8 @@ swiper-container {
     font-weight: 700;
     margin: 0;
     color: var(--ion-color-primary);
+    font-family: "Poppins", sans-serif;
+
     margin-bottom: 6px;
   }
   .pacifico-regular {

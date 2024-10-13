@@ -21,16 +21,15 @@ img{
 
 .titleText{
   color: #181725;
-font-family: Lato;
-font-size: 24px;
+font-size: 16px;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
+margin: 0px;
 }
 
 .linkText{
   color: #FF7322;
-font-family: Lato;
 font-size: 16px;
 font-style: normal;
 font-weight: 500;
@@ -74,9 +73,9 @@ swiper-slide {
   align-items: center;
   justify-content: center;
 
-  width: auto;
-  height: 180px;
-
+  width: 90%;
+  height: 100px;
+  gap: 10px;
   font-size: 18px;
 
   text-align: center;
@@ -88,4 +87,44 @@ swiper-slide img {
   max-width: 100%;
   height: auto;
   max-height: 100%;
+}
+
+
+.avatar{
+  position: relative;
+  height: 60px;
+    width: 120px;
+    border: 1px solid var(--ion-color-dark);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    background-color: #ceff51;
+}
+
+.avatar > p{
+  position: absolute;
+  font-size: 16px;
+  font-weight: 500;
+  top: 10px;
+  left: 10px;
+}
+.avatar > img{
+  height: 60px;
+  width: auto;
+  position: absolute;
+  bottom: 0px;
+}
+
+.banner{
+  height: 120px;
+  width: 100%;
+  margin: 0;
+}
+.banner > img {
+  height: auto;
+  width: 100%;
+  margin: 0;
 }
