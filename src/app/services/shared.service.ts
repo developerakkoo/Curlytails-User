@@ -97,7 +97,7 @@ export class SharedService {
     return this.http.post(environment.URL + `order/calculate/amount-to-pay`,body);
   }
   getAllProducts(){
-    return this.http.get(environment.URL + `product/search/${this.userId.value}`);
+    return this.http.get(environment.URL + `product/search/66adcdedebfe3c7753c6a3a1`);
   }
 
   getProductById(productId:any){

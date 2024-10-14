@@ -5,6 +5,7 @@ import { SharedService } from '../services/shared.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { SearchPage } from '../search/search.page';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -17,19 +18,27 @@ export class HomePage {
   banners:any[] = [];
   categories:any[] = [];
 
+  userId:any;
   isModalOpen:boolean = true;
   getProductSub$!: Subscription;
   getBannerSub$!: Subscription;
   getCategoriesSub$!: Subscription;
   constructor(private router:Router,
               private shared:SharedService,
+              private storage: DataService,
               private modalController: ModalController
   ) {}
 
   ionViewDidEnter(){
+    this.getUserId();
     this.getAllProducts();
   }
 
+  async getUserId(){
+    this.userId = await this.storage.get("userId");
+    console.log(this.userId);
+    
+  }
   handleRefresh(event:any) {
     setTimeout(() => {
       // Any calls to load data go here
@@ -96,6 +105,10 @@ export class HomePage {
   addToCart(ev:any){
     console.log(ev.productId);
     console.log(ev.type.size);
+    if(this.userId == null){
+      this.router.navigate(['']);
+      return;
+    }
     this.router.navigate(['details',ev.productId]);
    
   }

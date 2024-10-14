@@ -30,6 +30,10 @@ export class LoginPage implements OnInit {
     this.input.setFocus();
   }
 
+  skip(){
+    this.router.navigate(['tabs','tabnav','home'])
+  }
+
   onSubmit(){
     if(this.form.valid){
       console.log(this.form.value);

@@ -3,9 +3,9 @@
 <ion-content [fullscreen]="true" class="ion-padding">
  <div class="container ">
   <img class="animate__animated animate__fadeIn" src="assets/login-image.png" alt="">
-  <p class="brand animate__animated animate__fadeIn">Curlytails</p>
+  <p class="brand animate__animated animate__fadeIn">Curlietails</p>
   <p class="sub-title animate__animated animate__fadeIn">Your one stop Pet Shop!</p>
-  <p style="align-self: flex-start; margin-top:20px;" class="dark-text animate__animated animate__fadeIn">Hi!👋 Welcome to Curlytails.</p>
+  <p style="align-self: flex-start; margin-top:20px;" class="dark-text animate__animated animate__fadeIn">Hi!👋 Welcome to Curlietails.</p>
   <p style="align-self: flex-start;" class="light-text animate__animated animate__fadeIn">Create your account or Log in.</p>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="ion-margin-top animate__animated animate__slideInUp">
     
@@ -27,6 +27,9 @@
     
     <ion-button expand="block" mode="ios" class="ion-margin-top animate__animated animate__slideInUp" color="primary" type="submit" [disabled]="form.invalid">
       Continue
+    </ion-button>
+    <ion-button (click)="skip()" expand="block" fill="clear" shape="round">
+      Skip
     </ion-button>
   </form>
  </div>

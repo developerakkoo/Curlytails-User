@@ -210,6 +210,8 @@ this.shared.clearCart()
   }
 
   checkout() {
+
+  
     // this.openModalAddress();
     let obj = {
       amount: this.total
